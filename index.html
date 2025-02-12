@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>holaa</title>
+    <style>
+        body {
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .boton {
+            background-color: white;
+            color: black;
+            border: 2px solid black;
+            padding: 15px 30px;
+            font-size: 20px;
+            cursor: pointer;
+            transition: transform 0.3s, background-color 0.3s;
+            text-transform: uppercase;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+            .boton:hover {
+                background-color: #ddd;
+                transform: scale(1.1);
+            }
+
+        /* Estilos para los corazones animados */
+        .corazon {
+            position: absolute;
+            color: red;
+            font-size: 20px;
+            animation: subir 4s linear infinite;
+        }
+
+        @keyframes subir {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100vh) scale(1.5);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <button class="boton" onclick="window.location.href='SanValentin.html'">Presiona Aquí</button>
+
+    <script>function crearCorazon() {
+            const corazon = document.createElement("div");
+            corazon.innerHTML = "❤️";
+            corazon.classList.add("corazon");
+
+            // Posición aleatoria en la pantalla
+            corazon.style.left = Math.random() * 100 + "vw";
+            corazon.style.bottom = "-10px";
+
+            document.body.appendChild(corazon);
+
+            // Eliminar después de la animación
+            setTimeout(() => {
+                corazon.remove();
+            }, 4000);
+        }
+
+        // Crear corazones cada 500ms
+        setInterval(crearCorazon, 500);</script>
+
+</body>
+</html>
